@@ -1,14 +1,12 @@
+getgenv().click = true
+
 local plr = game.Players.LocalPlayer
 local gui = plr.PlayerGui.ScreenGui.Wheel
-
-while true do
-    if not getgenv().click then break end
-    
+while wait() do
+    if not click then break end
     for _,v in pairs(gui:GetChildren()) do
         if v:IsA("TextButton") and v.Visible == true then
-            v.MouseButton1Click:Fire()
+            firesignal(v.MouseButton1Click)
         end
     end
-    
-    wait()
 end
